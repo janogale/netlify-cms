@@ -3,7 +3,7 @@ templateKey: about-page
 path: /about
 title: About our values
 ---
-![coffee in pro](/img/jumbotron.jpg)
+![coffee in pro](/img/jumbotron.jpg "coffee in process")
 
 ### Shade-grown coffee
 
