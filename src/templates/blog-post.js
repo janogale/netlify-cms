@@ -68,8 +68,8 @@ const BlogPost = ({ data }) => {
     <Layout>
       <BlogPostTemplate
         content={post.html}
-        postedDate={post.posteddate}
-        closingDate={post.closingdate}
+        postedDate={post.frontmatter.posteddate}
+        closingDate={post.frontmatter.closingdate}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         helmet={
