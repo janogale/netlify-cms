@@ -32,7 +32,7 @@ export const BlogPostTemplate = ({
           //dates
            <div style={{ marginTop: `2rem` }}>
              <h4>Posted at: {postedDate} </h4>
-             <h4>Closing at: {ClosingDate} </h4>
+             <h4>Closing at: {closingDate} </h4>
              </div>
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
