@@ -10,6 +10,8 @@ export const BlogPostTemplate = ({
   content,
   contentComponent,
   description,
+  postedDate,
+  closingDate,
   tags,
   title,
   helmet,
@@ -27,6 +29,11 @@ export const BlogPostTemplate = ({
             </h1>
             <p>{description}</p>
             <PostContent content={content} />
+          //dates
+           <div style={{ marginTop: `2rem` }}>
+             <h4>Posted at: {postedDate} </h4>
+             <h4>Closing at: {ClosingDate} </h4>
+             </div>
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>
@@ -61,6 +68,8 @@ const BlogPost = ({ data }) => {
     <Layout>
       <BlogPostTemplate
         content={post.html}
+        postedDate={post.posteddate}
+        closingDate={post.closingdate}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         helmet={
@@ -93,7 +102,8 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        posteddate(formatString: "MMMM DD, YYYY")
+        closingdate(formatString: "MMMM DD, YYYY")
         title
         description
         tags
