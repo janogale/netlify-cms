@@ -20,8 +20,8 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
       - {label: "Job Title", name: "title", widget: "string"}
-      - {label: "Posted Date", name: "date", widget: "datetime"}
-      - {label: "Closing Date", name: "date", widget: "datetime"}
+      - {label: "Posted Date", name: "posteddate", widget: "datetime"}
+      - {label: "Closing Date", name: "closingdate", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
       - {label: "Featured Image", name: "featuredimage", widget: image}
