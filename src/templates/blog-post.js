@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
+import Img from "gatsby-image"
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
@@ -30,7 +31,7 @@ export const BlogPostTemplate = ({
             </h1>
           <div>
           <h1>Hello gatsby-image</h1>
-          <img src={featured} alt="featured image" />
+        <Img fluid={featured} />
         </div>
             <p>{description}</p>
             <PostContent content={content} />
@@ -77,7 +78,7 @@ const BlogPost = ({ data }) => {
         closingDate={post.frontmatter.closingdate}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        featured={post.frontmatter.featuredimage}
+        featured={post.frontmatter.featuredimage.childImageSharp.fluid}
         helmet={
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
@@ -111,7 +112,13 @@ export const pageQuery = graphql`
         posteddate(formatString: "MMMM DD, YYYY")
         closingdate(formatString: "MMMM DD, YYYY")
         title
-        featuredimage
+           featuredimage {   
+          childImageSharp {
+            fluid(maxWidth: 630) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         description
         tags
       }
