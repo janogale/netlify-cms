@@ -12,7 +12,7 @@ export const BlogPostTemplate = ({
   description,
   postedDate,
   closingDate,
-  featured
+  featured,
   tags,
   title,
   helmet,
