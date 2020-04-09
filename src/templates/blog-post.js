@@ -4,6 +4,7 @@ import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
+import Img from "gatsby-image"
 import Content, { HTMLContent } from '../components/Content'
 
 export const BlogPostTemplate = ({
@@ -12,6 +13,7 @@ export const BlogPostTemplate = ({
   description,
   postedDate,
   closingDate,
+  fluid
   tags,
   title,
   helmet,
@@ -27,6 +29,10 @@ export const BlogPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
+          <div>
+          <h1>Hello gatsby-image</h1>
+          <Img fixed={fluid} />
+        </div>
             <p>{description}</p>
             <PostContent content={content} />
           //dates
@@ -72,6 +78,7 @@ const BlogPost = ({ data }) => {
         closingDate={post.frontmatter.closingdate}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
+        fluid={post.frontmatter.image.fluid}
         helmet={
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
@@ -105,6 +112,13 @@ export const pageQuery = graphql`
         posteddate(formatString: "MMMM DD, YYYY")
         closingdate(formatString: "MMMM DD, YYYY")
         title
+         image {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }   
+        
         description
         tags
       }
