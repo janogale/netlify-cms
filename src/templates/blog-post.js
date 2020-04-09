@@ -33,7 +33,7 @@ export const BlogPostTemplate = ({
           <h1>Hello gatsby-image</h1>
               {featured
             && (
-              <Image
+              <Img
                 fluid={featured}
               />
             )
