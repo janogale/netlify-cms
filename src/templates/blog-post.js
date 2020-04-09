@@ -84,7 +84,7 @@ const BlogPost = ({ data }) => {
         closingDate={post.frontmatter.closingdate}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        featured={post.frontmatter.featuredimage.childImageSharp.fluid}
+        featured={{post.frontmatter.featuredimage ? post.frontmatter.featuredimage.childImageSharp.fluid : null}
         helmet={
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
