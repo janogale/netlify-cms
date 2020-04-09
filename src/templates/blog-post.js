@@ -31,8 +31,14 @@ export const BlogPostTemplate = ({
             </h1>
           <div>
           <h1>Hello gatsby-image</h1>
-        <Img fluid={featured} />
-        </div>
+              {featured
+            && (
+              <Image
+                fluid={featured}
+              />
+            )
+          }
+               </div>
             <p>{description}</p>
             <PostContent content={content} />
           //dates
