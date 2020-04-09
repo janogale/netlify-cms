@@ -78,7 +78,7 @@ const BlogPost = ({ data }) => {
         closingDate={post.frontmatter.closingdate}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        featured={post.frontmatter.featuredimage.childImageSharp.fluid}
+        featured={post.frontmatter.featuredImage.childImageSharp.fluid}
         helmet={
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
@@ -112,7 +112,7 @@ export const pageQuery = graphql`
         posteddate(formatString: "MMMM DD, YYYY")
         closingdate(formatString: "MMMM DD, YYYY")
         title
-           featuredimage {   
+           featuredImage {   
           childImageSharp {
             fluid(maxWidth: 630) {
               ...GatsbyImageSharpFluid
